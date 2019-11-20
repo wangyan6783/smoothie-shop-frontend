@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Hero from '../components/Hero';
 
-class Homepage extends Component {
+class Home extends Component {
     render(){
         return (
             <Hero />
@@ -9,4 +9,4 @@ class Homepage extends Component {
     }
 }
 
-export default Homepage;
+export default Home;

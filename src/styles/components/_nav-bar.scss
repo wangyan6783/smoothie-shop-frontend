@@ -7,9 +7,9 @@
 
     &__item {
         list-style: none;
-        padding: 2rem;
+        padding: 1.5rem 2rem;
 
-        &-logo{
+        &--logo{
             flex: 0 0 30%;
             text-align: center;
         }
@@ -28,6 +28,7 @@
     &__logo{
         font-size: 2rem;
         font-weight: 500;
+        letter-spacing: .75rem;
     }
 
     &__link {
