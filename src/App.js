@@ -4,6 +4,8 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import Signup from './pages/Signup';
+
 
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
           <Route path='/' exact render={()=><Home />} />
           <Route path='/home' exact render={()=><Home />} />
           <Route path='/login' exact render={()=><Login />} />
+          <Route path='/signup' exact render={()=><Signup />} />
 
         </Switch>
       </div>

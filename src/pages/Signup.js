@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class Login extends Component {
+class Signup extends Component {
     state = {
         username: "",
         password: ""
@@ -21,7 +21,7 @@ class Login extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        fetch("http://localhost:5000/users/login", {
+        fetch("http://localhost:5000/users/signup", {
             method: "POST",
             headers: {
                 "Accept": 'application/json',
@@ -38,19 +38,19 @@ class Login extends Component {
 
     render(){
         return (
-            <div className="login">
+            <div className="signup">
                 <form className="form" onSubmit={this.handleSubmit}>
-                    <h1 className="heading-1 mb-md form__title">Log in</h1>
+                    <h1 className="heading-1 mb-md form__title">Sign up</h1>
                     <label className="form__label" htmlFor="username">Username</label>
                     <input className="form__input" type="text" name="username" onChange={this.handleUsername}></input>
                     <label className="form__label" htmlFor="password">Password</label>
                     <input className="form__input mb-sm" type="text" name="password" onChange={this.handlePassword}></input>
-                    <button className="btn form__btn mb-sm" type="submit">Log in</button>
-                    <p className="form__text">Don't have an account? <Link className="form__link" to="/signup">Sign Up</Link></p>
+                    <button className="btn form__btn mb-sm" type="submit">Sign up</button>
+                    <p className="form__text">Already have an account? <Link className="form__link" to="/login">Log In</Link></p>
                 </form>
             </div>
         )
     }
 }
 
-export default Login;
+export default Signup;
