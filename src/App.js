@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Smoothies from './pages/Smoothies';
 
 
 
@@ -18,6 +19,7 @@ function App() {
           <Route path='/home' exact render={()=><Home />} />
           <Route path='/login' exact render={()=><Login />} />
           <Route path='/signup' exact render={()=><Signup />} />
+          <Route path='/smoothies' exact render={()=><Smoothies />} />
 
         </Switch>
       </div>

@@ -6,7 +6,7 @@ class Navbar extends Component {
         return (
             <div className="navbar">
                 <ul className="navbar__list">
-                    <li className="navbar__item"><Link className="navbar__link" to="/">Browse</Link></li>
+                    <li className="navbar__item"><Link className="navbar__link" to="/smoothies">Browse</Link></li>
                     <li className="navbar__item"><Link className="navbar__link" to="/">Our Story</Link></li>
                     <li className="navbar__item"><Link className="navbar__link" to="/">Gifts</Link></li>
                     <li className="navbar__item navbar__item--logo"><Link className="navbar__logo" to="/">Daily Harvest</Link></li>
