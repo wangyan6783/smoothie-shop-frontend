@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Smoothie from '../components/Smoothie';
 
 class Smoothies extends Component {
 
@@ -14,19 +15,10 @@ class Smoothies extends Component {
         })
     }
 
-    renderSmoothie(smoothie) {
-        return (
-            <div className="smoothies__item">
-                <img src={require(`../assets/smoothies/${smoothie.imgUrl}-1.jpeg`)} alt={smoothie.name} className="smoothies__image"/>
-                <h4 className="smoothies__name">{smoothie.name}</h4>
-            </div>
-        )
-    }
-
     render(){
         return (
             <div className="smoothies__list">
-                {this.state.smoothies.map(smoothie => this.renderSmoothie(smoothie))}
+                {this.state.smoothies.map(smoothie => <Smoothie key={smoothie._id} smoothie={smoothie}/>)}
             </div>
         )
     }
