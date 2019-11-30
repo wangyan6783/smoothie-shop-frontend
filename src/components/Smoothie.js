@@ -12,7 +12,7 @@ class Smoothie extends Component {
     }
 
     render(){
-        const { smoothie } = this.props;
+        const { smoothie, updateSmoothie } = this.props;
 
         let smoothieImage;
         if(this.state.imageFront){
@@ -21,8 +21,8 @@ class Smoothie extends Component {
             smoothieImage = <img onMouseOut={this.convertImage} src={require(`../assets/smoothies/${smoothie.imgUrl}-2.jpeg`)} alt={smoothie.name} className="smoothies__image mb-sm"/>
         }
 
-        return (
-            <div className="smoothies__item">
+        return (   
+            <div className="smoothies__item" onClick={() => updateSmoothie(smoothie)}>
                 {smoothieImage}
                 <h4 className="smoothies__name">{smoothie.name}</h4>
             </div>

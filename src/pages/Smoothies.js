@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import Smoothie from '../components/Smoothie';
+import SmoothieModal from '../components/SmoothieModal';
 
 class Smoothies extends Component {
 
     state = {
-        smoothies: []
+        smoothies: [],
+        selectedSmoothie: null
     }
 
     componentDidMount(){
@@ -15,11 +17,20 @@ class Smoothies extends Component {
         })
     }
 
+    updateSmoothie = (smoothie) => {
+        this.setState({
+            selectedSmoothie: smoothie
+        })
+    }
+
     render(){
         return (
-            <div className="smoothies__list">
-                {this.state.smoothies.map(smoothie => <Smoothie key={smoothie._id} smoothie={smoothie}/>)}
-            </div>
+            <React.Fragment>
+                <div className="smoothies__list">
+                    {this.state.smoothies.map(smoothie => <Smoothie key={smoothie._id} smoothie={smoothie} updateSmoothie={this.updateSmoothie}/>)}
+                </div>
+                {this.state.selectedSmoothie && <SmoothieModal smoothie={this.state.selectedSmoothie} updateSmoothie={this.updateSmoothie}/>}
+            </React.Fragment>
         )
     }
 }

@@ -1,0 +1,51 @@
+.modal{
+    background-color: rgba(0,0,0,0.8);
+    position: fixed;
+    top: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__content-container {
+        position: relative;
+        background-color: white;
+        height: 80%;
+        width: 70%;
+    }
+
+    &__close{
+        font-size: 3rem;
+        position: absolute;
+        top: 1rem;
+        right: 3rem;
+        cursor: pointer;
+    }
+
+    &__contents {
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 3rem;
+        justify-content: center;
+        align-content: center;
+        padding: 2rem 4rem;
+        align-items: center;
+    }
+
+    &__image-container{
+        text-align: center;
+    }
+
+    &__image{
+        width: 35rem;
+    }
+
+    &__subtitle{
+        font-size: 1.5rem;
+    }
+
+    &__description{
+        font-weight: 300;
+    }
+}
