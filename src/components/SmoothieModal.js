@@ -4,7 +4,7 @@ class SmoothieModal extends Component {
 
     closeModal = (e) => {
         //event delegation
-        if(e.target.id==="smoothie-modal" || e.target.id==="smoothie-close") {
+        if(e.target.matches("#smoothie-modal, #smoothie-close")) {
             this.props.updateSmoothie(null);
         }
     }

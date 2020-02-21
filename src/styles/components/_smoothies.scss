@@ -1,29 +1,29 @@
 .smoothies {
-    &__list{
-        padding: 10rem;
+    &-list{
+        width: 90%;
+        margin: 2rem auto 6rem auto;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(25rem,1fr));
         grid-row-gap: 4rem;
-        grid-column-gap: 2.5rem;
+        grid-column-gap: 1.5rem;
     }
 
-    &__item {
+    &-item {
         text-align: center;
         cursor: pointer;
         position: relative;
 
-        &:hover .smoothies__name {
+        &:hover .smoothies-name {
             text-decoration: underline;
-            text-underline-position: under;
         }
     }
 
-    &__image {
-        width: 25rem;
-    }
-
-    &__name {
+    &-name {
         font-size: 1.8rem;
         font-weight: 400;
+    }
+
+    &-image {
+        width: 25rem;
     }
 }

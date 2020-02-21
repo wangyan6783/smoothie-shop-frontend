@@ -11,20 +11,21 @@ class Smoothie extends Component {
         })
     }
 
+    renderSmoothieImage = (smoothie) => {
+        if(this.state.imageFront) {
+            return <img onMouseOver={this.convertImage} src={require(`../assets/smoothies/${smoothie.imgUrl}-1.jpeg`)} alt={smoothie.name} className="smoothies-image mb-sm"/>
+        } else {
+            return <img onMouseOut={this.convertImage} src={require(`../assets/smoothies/${smoothie.imgUrl}-2.jpeg`)} alt={smoothie.name} className="smoothies-image mb-sm"/>
+        }
+    }
+
     render(){
         const { smoothie, updateSmoothie } = this.props;
 
-        let smoothieImage;
-        if(this.state.imageFront){
-            smoothieImage = <img onMouseOver={this.convertImage} src={require(`../assets/smoothies/${smoothie.imgUrl}-1.jpeg`)} alt={smoothie.name} className="smoothies__image mb-sm"/>
-        } else {
-            smoothieImage = <img onMouseOut={this.convertImage} src={require(`../assets/smoothies/${smoothie.imgUrl}-2.jpeg`)} alt={smoothie.name} className="smoothies__image mb-sm"/>
-        }
-
         return (   
-            <div className="smoothies__item" onClick={() => updateSmoothie(smoothie)}>
-                {smoothieImage}
-                <h4 className="smoothies__name">{smoothie.name}</h4>
+            <div className="smoothies-item" onClick={() => updateSmoothie(smoothie)}>
+                {this.renderSmoothieImage(smoothie)}
+                <h4 className="smoothies-name">{smoothie.name}</h4>
             </div>
         )
     }

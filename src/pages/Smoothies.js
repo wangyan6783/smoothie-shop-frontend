@@ -26,7 +26,7 @@ class Smoothies extends Component {
     render(){
         return (
             <React.Fragment>
-                <div className="smoothies__list">
+                <div className="smoothies-list">
                     {this.state.smoothies.map(smoothie => <Smoothie key={smoothie._id} smoothie={smoothie} updateSmoothie={this.updateSmoothie}/>)}
                 </div>
                 {this.state.selectedSmoothie && <SmoothieModal smoothie={this.state.selectedSmoothie} updateSmoothie={this.updateSmoothie}/>}
