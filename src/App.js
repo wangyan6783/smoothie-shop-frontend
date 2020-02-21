@@ -20,7 +20,6 @@ function App() {
           <Route path='/login' exact render={()=><Login />} />
           <Route path='/signup' exact render={()=><Signup />} />
           <Route path='/smoothies' exact render={()=><Smoothies />} />
-
         </Switch>
       </div>
     </Router>
