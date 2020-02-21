@@ -1,39 +1,25 @@
 .form {
-    width: 30%;
-    height: 75vh;
-    display: grid;
-    grid-gap: 1.5rem;
+    width: 40%;
     margin: 0 auto;
-    align-content: center;
+    text-align: center;
 
-    &__title,
-    &__text {
-        justify-self: center;
-    }
-
-    &__label,
-    &__text {
-        font-size: 1.5rem;
-        color: var(--color-grey-dark-1);
-    }
-
-    &__input {
+    &-input {
         font-size: 1.5rem;
         padding: 1rem 2.5rem;
-        // width: 30%;
+        width: 80%;
         transition: all .2s;
-
-        &:focus {
-            outline: none;
-        }
+        outline: none;
     }
 
-    &__btn {
-        justify-self: stretch;
+    &-text {
+        display: block;
+        font-size: 1.5rem;
+        color: var(--color-grey-dark-1);
+        padding: 1rem 0;
     }
 
-    &__link {
-        color: inherit;
+    &-link {
+        color: var(--color-grey-dark-1);
     }
     
 }
