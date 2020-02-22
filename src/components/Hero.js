@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import heroImage from "../assets/hero.png";
 
@@ -14,7 +14,7 @@ function Hero() {
           <button className="btn hero-btn">Get started</button>
         </Link>
       </div>
-      <img className="hero-image" src={heroImage} />
+      <img className="hero-image" src={heroImage} alt="Eat more fruites" />
     </div>
   );
 }

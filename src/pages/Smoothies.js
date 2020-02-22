@@ -1,48 +1,42 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Smoothie from "../components/Smoothie";
 import SmoothieModal from "../components/SmoothieModal";
 
-class Smoothies extends Component {
-  state = {
-    smoothies: [],
-    selectedSmoothie: null
-  };
+function Smoothies() {
+  const [smoothies, setSmoothies] = useState([]);
+  const [selectedSmoothie, setSelectedSmoothie] = useState(null);
 
-  componentDidMount() {
+  useEffect(fetchSmoothies, []);
+
+  function fetchSmoothies() {
     fetch("http://localhost:5000/smoothies")
       .then(r => r.json())
-      .then(smoothies => {
-        this.setState({ smoothies });
-      });
+      .then(smoothies => setSmoothies(smoothies));
   }
 
-  updateSmoothie = smoothie => {
-    this.setState({
-      selectedSmoothie: smoothie
-    });
-  };
+  function updateSmoothie(smoothie) {
+    setSelectedSmoothie(smoothie);
+  }
 
-  render() {
-    return (
-      <React.Fragment>
-        <div className="smoothies-list">
-          {this.state.smoothies.map(smoothie => (
-            <Smoothie
-              key={smoothie._id}
-              smoothie={smoothie}
-              updateSmoothie={this.updateSmoothie}
-            />
-          ))}
-        </div>
-        {this.state.selectedSmoothie && (
-          <SmoothieModal
-            smoothie={this.state.selectedSmoothie}
-            updateSmoothie={this.updateSmoothie}
+  return (
+    <React.Fragment>
+      <div className="smoothies-list">
+        {smoothies.map(smoothie => (
+          <Smoothie
+            key={smoothie._id}
+            smoothie={smoothie}
+            updateSmoothie={updateSmoothie}
           />
-        )}
-      </React.Fragment>
-    );
-  }
+        ))}
+      </div>
+      {selectedSmoothie && (
+        <SmoothieModal
+          smoothie={selectedSmoothie}
+          updateSmoothie={updateSmoothie}
+        />
+      )}
+    </React.Fragment>
+  );
 }
 
 export default Smoothies;
