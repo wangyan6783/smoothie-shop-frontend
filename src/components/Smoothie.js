@@ -1,48 +1,24 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-class Smoothie extends Component {
-  state = {
-    imageFront: true
-  };
+function Smoothie({ smoothie, updateSmoothie }) {
+  const [imageName, setImageName] = useState("1");
 
-  convertImage = e => {
-    this.setState({
-      imageFront: !this.state.imageFront
-    });
-  };
-
-  renderSmoothieImage = smoothie => {
-    if (this.state.imageFront) {
-      return (
-        <img
-          onMouseOver={this.convertImage}
-          src={require(`../assets/smoothies/${smoothie.imgUrl}-1.jpeg`)}
-          alt={smoothie.name}
-          className="smoothies-image mb-sm"
-        />
-      );
-    } else {
-      return (
-        <img
-          onMouseOut={this.convertImage}
-          src={require(`../assets/smoothies/${smoothie.imgUrl}-2.jpeg`)}
-          alt={smoothie.name}
-          className="smoothies-image mb-sm"
-        />
-      );
-    }
-  };
-
-  render() {
-    const { smoothie, updateSmoothie } = this.props;
-
-    return (
-      <div className="smoothies-item" onClick={() => updateSmoothie(smoothie)}>
-        {this.renderSmoothieImage(smoothie)}
-        <h4 className="smoothies-name">{smoothie.name}</h4>
-      </div>
-    );
+  function convertImage() {
+    imageName === "1" ? setImageName("2") : setImageName("1");
   }
+
+  return (
+    <div className="smoothies-item" onClick={() => updateSmoothie(smoothie)}>
+      <img
+        onMouseOver={convertImage}
+        onMouseOut={convertImage}
+        src={require(`../assets/smoothies/${smoothie.imgUrl}-${imageName}.jpeg`)}
+        alt={smoothie.name}
+        className="smoothies-image mb-sm"
+      />
+      <h4 className="smoothies-name">{smoothie.name}</h4>
+    </div>
+  );
 }
 
 export default Smoothie;
