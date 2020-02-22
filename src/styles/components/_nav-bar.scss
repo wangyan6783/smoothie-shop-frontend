@@ -1,40 +1,39 @@
 .navbar {
-    margin: 2rem auto 8rem auto;
+  margin: 2rem auto 8rem auto;
 
-    &-list{
-        width: 100%;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-    }
+  &-list {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
 
-    &-item {
-        list-style: none;
-        text-align: center;
-    }
+  &-item {
+    list-style: none;
+    text-align: center;
+  }
 
-    &-logo,
-    &-link {
-        font-size: 1.6rem;
-        color: black;
-        padding: 1.5rem 1.3rem;
-        text-decoration: none;
-        text-transform: uppercase;
-        transition: all .2s;
-    }
+  &-logo,
+  &-link {
+    font-size: 1.6rem;
+    color: black;
+    padding: 1.5rem 1.3rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
 
-    &-link {
-        &:hover,
-        &:active {
-            color: white;
-            background-color: black;
-        }
+  &-link {
+    &:hover,
+    &:active {
+      color: white;
+      background-color: black;
     }
+  }
 
-    &-logo{
-        font-size: 2.5rem;
-        font-weight: 500;
-        letter-spacing: .75rem;
-    }
+  &-logo {
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: 0.75rem;
+  }
 }
-  

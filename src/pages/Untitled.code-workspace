@@ -1,12 +1,12 @@
 {
-	"folders": [
-		{
-			"path": "/Volumes/Seagate Backup Plus Drive/Flatiron Yan Desktop/smoothie"
-		},
-		{
-			"name": ".leetcode",
-			"path": "/Users/JSIMPLE/.leetcode"
-		}
-	],
-	"settings": {}
+  "folders": [
+    {
+      "path": "/Volumes/Seagate Backup Plus Drive/Flatiron Yan Desktop/smoothie"
+    },
+    {
+      "name": ".leetcode",
+      "path": "/Users/JSIMPLE/.leetcode"
+    }
+  ],
+  "settings": {}
 }
