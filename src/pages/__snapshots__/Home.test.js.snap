@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Component matches the snapshot 1`] = `
+<div
+  className="home"
+>
+  <div
+    className="home-content"
+  >
+    <h1
+      className="heading-1 home-title mb-sm"
+    >
+      Eat more fruites
+    </h1>
+    <p
+      className="content-text-1 mb-md"
+    >
+      We take care of food so food can take care of you.
+    </p>
+    <a
+      href="/smoothies"
+      onClick={[Function]}
+    >
+      <button
+        className="btn home-btn"
+      >
+        Get started
+      </button>
+    </a>
+  </div>
+  <img
+    alt="Eat more fruites"
+    className="home-image"
+    src="home.png"
+  />
+</div>
+`;
+
+exports[`Home Component render correctly 1`] = `
+<div
+  className="home"
+>
+  <div
+    className="home-content"
+  >
+    <h1
+      className="heading-1 home-title mb-sm"
+    >
+      Eat more fruites
+    </h1>
+    <p
+      className="content-text-1 mb-md"
+    >
+      We take care of food so food can take care of you.
+    </p>
+    <a
+      href="/smoothies"
+      onClick={[Function]}
+    >
+      <button
+        className="btn home-btn"
+      >
+        Get started
+      </button>
+    </a>
+  </div>
+  <img
+    alt="Eat more fruites"
+    className="home-image"
+    src="home.png"
+  />
+</div>
+`;

@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SmoothieModal Component render correctly 1`] = `
+<div
+  className="modal"
+  id="smoothie-modal"
+  onClick={[Function]}
+>
+  <div
+    className="modal-content-container"
+  >
+    <div
+      className="modal-close"
+    >
+      <span
+        id="smoothie-close"
+      >
+        x
+      </span>
+    </div>
+    <div
+      className="modal-content"
+    >
+      <div
+        className="modal-slot-1"
+      >
+        <img
+          alt="Tart Cherry + Raspberry"
+          className="modal-image"
+          src="tart-cherry-raspberry-1.jpeg"
+        />
+      </div>
+      <div
+        className="modal-slot-2"
+      >
+        <div
+          className="modal-title heading-2 mb-sm"
+        >
+          Tart Cherry + Raspberry
+        </div>
+        <div
+          className="modal-subtitle content-text-1 mb-sm"
+        >
+          Tastes Like: 
+          Fresh Berry Sorbet
+        </div>
+        <p
+          className="modal-description content-text-2 mb-md"
+        >
+          This tangy smoothie hits hard with the tart bite of raspberries and sweet kick of our Mission Figs. Tart cherries and blueberries bring vibrant color to this antioxidant powerhouse, which helps put free-radicals in their place. Plus, the cherries help calm your system with anti-inflammatory properties and even help you sleep. Name another sorbet that can do that?
+        </p>
+        <button
+          className="btn modal-button"
+        >
+          Add to cart
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Smoothie Component render correctly 1`] = `
+<div
+  className="smoothies-item"
+  onClick={[Function]}
+>
+  <img
+    alt="Tart Cherry + Raspberry"
+    className="smoothies-image mb-sm"
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    src="tart-cherry-raspberry-1.jpeg"
+  />
+  <h4
+    className="smoothies-name"
+  >
+    Tart Cherry + Raspberry
+  </h4>
+</div>
+`;
