@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-function Navbar({ loginUser, setLoginUser }) {
+function Navbar(props) {
   function renderLogin() {
-    if (loginUser) {
+    if (props.currentUser) {
       console.log("signedin");
       return (
         <li className="navbar-item">
-          <Link className="navbar-link" to="/" onClick={setLoginUser("")}>
+          <Link className="navbar-link" to="/">
             Sign Out
           </Link>
         </li>
@@ -62,4 +63,8 @@ function Navbar({ loginUser, setLoginUser }) {
   );
 }
 
-export default Navbar;
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser
+});
+
+export default connect(mapStateToProps)(Navbar);

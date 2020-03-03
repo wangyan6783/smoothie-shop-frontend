@@ -8,20 +8,14 @@ import Signup from "./pages/Signup";
 import Smoothies from "./pages/Smoothies";
 
 function App() {
-  const [loginUser, setLoginUser] = useState("");
-
   return (
     <Router>
       <div>
-        <Navbar loginUser={loginUser} setLoginUser={setLoginUser} />
+        <Navbar />
         <Switch>
           <Route path="/" exact render={() => <Home />} />
           <Route path="/home" exact render={() => <Home />} />
-          <Route
-            path="/login"
-            exact
-            render={() => <Login setLoginUser={setLoginUser} />}
-          />
+          <Route path="/login" exact render={() => <Login />} />
           <Route path="/signup" exact render={() => <Signup />} />
           <Route path="/smoothies" exact render={() => <Smoothies />} />
         </Switch>
