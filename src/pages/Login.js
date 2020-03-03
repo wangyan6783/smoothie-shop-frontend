@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-function Login() {
+function Login({ setLoginUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState(false);
 
   function handleUsername(e) {
     setUsername(e.target.value);
@@ -15,6 +16,8 @@ function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    setUsername("");
+    setPassword("");
     fetch("http://localhost:5000/users/login", {
       method: "POST",
       headers: {
@@ -27,13 +30,18 @@ function Login() {
       })
     })
       .then(r => r.json())
-      .then(data => console.log(data));
+      .then(data => {
+        console.log(data);
+        if (data === "error") setLoginError(true);
+        else setLoginUser(data.username);
+      });
   }
 
   return (
     <div className="login">
       <form className="form" onSubmit={handleSubmit}>
         <h1 className="heading-1 mb-md">Log in</h1>
+        {loginError ? <div>Invalid username or password</div> : null}
         <div>
           <label className="form-text" htmlFor="username">
             Username
@@ -42,6 +50,7 @@ function Login() {
             className="form-input"
             type="text"
             name="username"
+            value={username}
             onChange={handleUsername}
           ></input>
         </div>
@@ -51,8 +60,9 @@ function Login() {
           </label>
           <input
             className="form-input mb-sm"
-            type="text"
+            type="password"
             name="password"
+            value={password}
             onChange={handlePassword}
           ></input>
         </div>
@@ -60,7 +70,7 @@ function Login() {
           Log in
         </button>
         <p className="form-text">
-          Don't have an account?{" "}
+          {`Don't have an account? `}
           <Link className="form-link" to="/signup">
             Sign Up
           </Link>

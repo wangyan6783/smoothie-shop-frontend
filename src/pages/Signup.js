@@ -15,6 +15,8 @@ function Signup() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    setUsername("");
+    setPassword("");
     fetch("http://localhost:5000/users/signup", {
       method: "POST",
       headers: {
@@ -27,7 +29,8 @@ function Signup() {
       })
     })
       .then(r => r.json())
-      .then(data => console.log(data));
+      .then(data => console.log(data))
+      .catch(err => console.log(err));
   }
 
   return (
@@ -42,6 +45,7 @@ function Signup() {
             className="form-input"
             type="text"
             name="username"
+            value={username}
             onChange={handleUsername}
           ></input>
         </div>
@@ -51,8 +55,9 @@ function Signup() {
           </label>
           <input
             className="form-input mb-sm"
-            type="text"
+            type="password"
             name="password"
+            value={password}
             onChange={handlePassword}
           ></input>
         </div>
@@ -60,7 +65,7 @@ function Signup() {
           Sign up
         </button>
         <p className="form-text">
-          Already have an account?{" "}
+          {`Already have an account? `}
           <Link className="form-link" to="/login">
             Log In
           </Link>

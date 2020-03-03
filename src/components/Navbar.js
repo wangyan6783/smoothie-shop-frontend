@@ -1,7 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar({ loginUser, setLoginUser }) {
+  function renderLogin() {
+    if (loginUser) {
+      console.log("signedin");
+      return (
+        <li className="navbar-item">
+          <Link className="navbar-link" to="/" onClick={setLoginUser("")}>
+            Sign Out
+          </Link>
+        </li>
+      );
+    } else {
+      return (
+        <li className="navbar-item">
+          <Link className="navbar-link" to="/login">
+            Login
+          </Link>
+        </li>
+      );
+    }
+  }
+
   return (
     <nav className="navbar">
       <ul className="navbar-list">
@@ -30,11 +51,7 @@ function Navbar() {
             Help
           </Link>
         </li>
-        <li className="navbar-item">
-          <Link className="navbar-link" to="/login">
-            Login
-          </Link>
-        </li>
+        {renderLogin()}
         <li className="navbar-item">
           <Link className="navbar-link" to="/">
             Get Started
