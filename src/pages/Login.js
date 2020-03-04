@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { setCurrentUser } from "../redux/user/user.actions";
 
@@ -38,6 +38,7 @@ function Login(props) {
           setLoginError(true);
         } else {
           props.setCurrentUser({ username: data.username });
+          props.history.push("/");
         }
       });
   }
@@ -89,4 +90,4 @@ const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
 });
 
-export default connect(null, mapDispatchToProps)(Login);
+export default withRouter(connect(null, mapDispatchToProps)(Login));

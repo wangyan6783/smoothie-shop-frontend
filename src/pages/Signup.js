@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { setCurrentUser } from "../redux/user/user.actions";
 
-function Signup() {
+function Signup(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [signupError, setSignupError] = useState(false);
 
   function handleUsername(e) {
     setUsername(e.target.value);
@@ -29,7 +32,15 @@ function Signup() {
       })
     })
       .then(r => r.json())
-      .then(data => console.log(data))
+      .then(data => {
+        console.log(data);
+        if (data === "error") {
+          setSignupError(true);
+        } else {
+          props.setCurrentUser({ username: data.username });
+          props.history.push("/");
+        }
+      })
       .catch(err => console.log(err));
   }
 
@@ -37,6 +48,7 @@ function Signup() {
     <div className="signup">
       <form className="form" onSubmit={handleSubmit}>
         <h1 className="heading-1 mb-md">Sign up</h1>
+        {signupError ? <div>Username already taken</div> : null}
         <div>
           <label className="form-text" htmlFor="username">
             Username
@@ -75,4 +87,8 @@ function Signup() {
   );
 }
 
-export default Signup;
+const mapDispatchToProps = dispatch => ({
+  setCurrentUser: user => dispatch(setCurrentUser(user))
+});
+
+export default withRouter(connect(null, mapDispatchToProps)(Signup));
