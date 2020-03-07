@@ -12,7 +12,7 @@ function Smoothie({ smoothie, updateSmoothie }) {
       <img
         onMouseOver={convertImage}
         onMouseOut={convertImage}
-        src={require(`../assets/smoothies/${smoothie.imgUrl}-${imageName}.jpeg`)}
+        src={require(`../../assets/smoothies/${smoothie.imgUrl}-${imageName}.jpeg`)}
         alt={smoothie.name}
         className="smoothies-image mb-sm"
       />

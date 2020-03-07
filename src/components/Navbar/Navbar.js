@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { setCurrentUser } from "../redux/user/user.actions";
+import { setCurrentUser } from "../../redux/user/user.actions";
 
 function Navbar(props) {
   function renderLogin() {

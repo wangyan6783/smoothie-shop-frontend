@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Smoothie from "../components/Smoothie";
-import SmoothieModal from "../components/SmoothieModal";
+import Smoothie from "../../components/Smoothie/Smoothie";
+import SmoothieModal from "../../components/SmoothieModal/SmoothieModal";
 
 function Smoothies() {
   const [smoothies, setSmoothies] = useState([]);

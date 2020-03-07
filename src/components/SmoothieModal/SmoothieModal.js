@@ -17,7 +17,7 @@ function SmoothieModal({ smoothie, updateSmoothie }) {
         <div className="modal-content">
           <div className="modal-slot-1">
             <img
-              src={require(`../assets/smoothies/${smoothie.imgUrl}-1.jpeg`)}
+              src={require(`../../assets/smoothies/${smoothie.imgUrl}-1.jpeg`)}
               alt={smoothie.name}
               className="modal-image"
             />

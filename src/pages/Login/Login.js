@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { setCurrentUser } from "../redux/user/user.actions";
+import { setCurrentUser } from "../../redux/user/user.actions";
 
-function Signup(props) {
+function Login(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [signupError, setSignupError] = useState(false);
+  const [loginError, setLoginError] = useState(false);
 
   function handleUsername(e) {
     setUsername(e.target.value);
@@ -20,7 +20,7 @@ function Signup(props) {
     e.preventDefault();
     setUsername("");
     setPassword("");
-    fetch("http://localhost:5000/users/signup", {
+    fetch("http://localhost:5000/users/login", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -35,25 +35,27 @@ function Signup(props) {
       .then(data => {
         console.log(data);
         if (data === "error") {
-          setSignupError(true);
+          setLoginError(true);
         } else {
           props.setCurrentUser({ username: data.username });
           props.history.push("/");
         }
-      })
-      .catch(err => console.log(err));
+      });
   }
 
   return (
-    <div className="signup">
+    <div className="login">
       <form className="form" onSubmit={handleSubmit}>
-        <h1 className="heading-1 mb-md">Sign up</h1>
-        {signupError ? <div>Username already taken</div> : null}
+        <h1 className="heading-1 mb-md">Log in</h1>
+        {loginError ? (
+          <div className="form-error">Invalid username or password</div>
+        ) : null}
         <div>
-          <label className="form-text" htmlFor="username">
+          <label className="form-text" htmlFor="login-username">
             Username
           </label>
           <input
+            id="login-username"
             className="form-input"
             type="text"
             name="username"
@@ -62,10 +64,11 @@ function Signup(props) {
           ></input>
         </div>
         <div className="mb-sm">
-          <label className="form-text" htmlFor="password">
+          <label className="form-text" htmlFor="login-password">
             Password
           </label>
           <input
+            id="login-password"
             className="form-input mb-sm"
             type="password"
             name="password"
@@ -74,12 +77,12 @@ function Signup(props) {
           ></input>
         </div>
         <button className="btn form-btn mb-sm" type="submit">
-          Sign up
+          Log in
         </button>
         <p className="form-text">
-          {`Already have an account? `}
-          <Link className="form-link" to="/login">
-            Log In
+          {`Don't have an account? `}
+          <Link className="form-link" to="/signup">
+            Sign Up
           </Link>
         </p>
       </form>
@@ -91,4 +94,4 @@ const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(Signup));
+export default withRouter(connect(null, mapDispatchToProps)(Login));
