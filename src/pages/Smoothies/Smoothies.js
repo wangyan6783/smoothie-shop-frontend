@@ -1,18 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useFetch } from "../../hooks/useFetch";
 import Smoothie from "../../components/Smoothie/Smoothie";
 import SmoothieModal from "../../components/SmoothieModal/SmoothieModal";
 
 function Smoothies() {
-  const [smoothies, setSmoothies] = useState([]);
   const [selectedSmoothie, setSelectedSmoothie] = useState(null);
-
-  useEffect(fetchSmoothies, []);
-
-  function fetchSmoothies() {
-    fetch("http://localhost:5000/smoothies")
-      .then(r => r.json())
-      .then(smoothies => setSmoothies(smoothies));
-  }
+  const { isLoading, fetchedData } = useFetch(
+    "http://localhost:5000/smoothies"
+  );
+  const smoothies = fetchedData ? fetchedData : [];
 
   function updateSmoothie(smoothie) {
     setSelectedSmoothie(smoothie);
@@ -21,13 +17,17 @@ function Smoothies() {
   return (
     <React.Fragment>
       <div className="smoothies-list">
-        {smoothies.map(smoothie => (
-          <Smoothie
-            key={smoothie._id}
-            smoothie={smoothie}
-            updateSmoothie={updateSmoothie}
-          />
-        ))}
+        {isLoading ? (
+          <div>Loading...</div>
+        ) : (
+          smoothies.map(smoothie => (
+            <Smoothie
+              key={smoothie._id}
+              smoothie={smoothie}
+              updateSmoothie={updateSmoothie}
+            />
+          ))
+        )}
       </div>
       {selectedSmoothie && (
         <SmoothieModal
