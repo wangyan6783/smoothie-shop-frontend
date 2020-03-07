@@ -48,12 +48,15 @@ function Signup(props) {
     <div className="signup">
       <form className="form" onSubmit={handleSubmit}>
         <h1 className="heading-1 mb-md">Sign up</h1>
-        {signupError ? <div>Username already taken</div> : null}
+        {signupError ? (
+          <div className="form-error">Username already taken</div>
+        ) : null}
         <div>
-          <label className="form-text" htmlFor="username">
+          <label className="form-text" htmlFor="signup-username">
             Username
           </label>
           <input
+            id="signup-username"
             className="form-input"
             type="text"
             name="username"
@@ -62,10 +65,11 @@ function Signup(props) {
           ></input>
         </div>
         <div className="mb-sm">
-          <label className="form-text" htmlFor="password">
+          <label className="form-text" htmlFor="signup-password">
             Password
           </label>
           <input
+            id="signup-password"
             className="form-input mb-sm"
             type="password"
             name="password"
