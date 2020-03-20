@@ -5,7 +5,8 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "./redux/user/user.selectors";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home/Home";
@@ -13,8 +14,8 @@ import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import Smoothies from "./pages/Smoothies/Smoothies";
 
-function App(props) {
-  console.log(props);
+function App() {
+  const currentUser = useSelector(selectCurrentUser);
   return (
     <Router>
       <div>
@@ -25,14 +26,12 @@ function App(props) {
           <Route
             path="/login"
             exact
-            render={() => (props.currentUser ? <Redirect to="/" /> : <Login />)}
+            render={() => (currentUser ? <Redirect to="/" /> : <Login />)}
           />
           <Route
             path="/signup"
             exact
-            render={() =>
-              props.currentUser ? <Redirect to="/" /> : <Signup />
-            }
+            render={() => (currentUser ? <Redirect to="/" /> : <Signup />)}
           />
           <Route path="/smoothies" exact render={() => <Smoothies />} />
         </Switch>
@@ -41,8 +40,4 @@ function App(props) {
   );
 }
 
-const mapStateToProps = state => ({
-  currentUser: state.user.currentUser
-});
-
-export default connect(mapStateToProps)(App);
+export default App;

@@ -1,14 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { selectCurrentUser } from "../../redux/user/user.selectors";
 import { setCurrentUser } from "../../redux/user/user.actions";
 
-function Navbar(props) {
+function Navbar() {
+  const currentUser = useSelector(selectCurrentUser);
+  const dispatch = useDispatch();
+
   function renderLogin() {
-    if (props.currentUser) {
+    if (currentUser) {
       return (
         <li className="navbar-item">
-          <Link className="navbar-link" to="/" onClick={props.signout}>
+          <Link
+            className="navbar-link"
+            to="/"
+            onClick={() => dispatch(setCurrentUser(null))}
+          >
             Sign Out
           </Link>
         </li>
@@ -63,12 +71,4 @@ function Navbar(props) {
   );
 }
 
-const mapStateToProps = state => ({
-  currentUser: state.user.currentUser
-});
-
-const mapDispatchToProps = dispatch => ({
-  signout: () => dispatch(setCurrentUser(null))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default Navbar;

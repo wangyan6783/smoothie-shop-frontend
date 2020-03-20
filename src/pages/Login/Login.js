@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setCurrentUser } from "../../redux/user/user.actions";
 
 function Login(props) {
+  const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState(false);
@@ -37,7 +38,7 @@ function Login(props) {
         if (data === "error") {
           setLoginError(true);
         } else {
-          props.setCurrentUser({ username: data.username });
+          dispatch(setCurrentUser({ username: data.username }));
           props.history.push("/");
         }
       });
@@ -90,8 +91,4 @@ function Login(props) {
   );
 }
 
-const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
-});
-
-export default withRouter(connect(null, mapDispatchToProps)(Login));
+export default withRouter(Login);
