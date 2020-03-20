@@ -3,5 +3,9 @@
 exports[`Smoothies Component render correctly 1`] = `
 <div
   className="smoothies-list"
-/>
+>
+  <div>
+    Loading...
+  </div>
+</div>
 `;

@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setCurrentUser } from "../../redux/user/user.actions";
 
 function Signup(props) {
+  const dispatch = useDispatch();
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [signupError, setSignupError] = useState(false);
@@ -37,7 +39,7 @@ function Signup(props) {
         if (data === "error") {
           setSignupError(true);
         } else {
-          props.setCurrentUser({ username: data.username });
+          dispatch(setCurrentUser({ username: data.username }));
           props.history.push("/");
         }
       })
@@ -91,8 +93,4 @@ function Signup(props) {
   );
 }
 
-const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
-});
-
-export default withRouter(connect(null, mapDispatchToProps)(Signup));
+export default withRouter(Signup);
